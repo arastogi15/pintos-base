@@ -92,8 +92,13 @@ timer_sleep (int64_t ticks)
   int64_t start = timer_ticks ();
 
   ASSERT (intr_get_level () == INTR_ON);
-  while (timer_elapsed (start) < ticks) 
-    thread_yield ();
+  // while (timer_elapsed (start) < ticks) 
+  //   thread_yield ();
+
+  // TODO: neee to track how many times did the tread want to sleep. 
+  // Need to put thread into sleeping list
+  current_thread->sleep_ticks = ticks
+  // put the current thread to sleep: thread_block(current_thread);
 }
 
 /* Sleeps for approximately MS milliseconds.  Interrupts must be
@@ -172,6 +177,10 @@ timer_interrupt (struct intr_frame *args UNUSED)
 {
   ticks++;
   thread_tick ();
+
+  // TOOD: iterate through the sleeping threads, decide if I should wake them up now
+  // Need some data structure that will allow us to iterate through the threads and identify
+  // who is sleep and who is not.
 }
 
 /* Returns true if LOOPS iterations waits for more than one timer

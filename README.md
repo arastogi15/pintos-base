@@ -7,11 +7,11 @@ A link to the online Pintos documentation [can be found here](http://web.stanfor
 
 
 ## Repository Setup
-Name: Tommy Trojan
+Name: Ankur Rastogi	
 
-Email: ttrojan@usc.edu
+Email: ankurras@usc.edu
 
-ID: 1234567890
+ID: 5223798745
 
 ## Project Organization
 Please make sure you organize your repository in the following manner:
